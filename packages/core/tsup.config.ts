@@ -5,11 +5,11 @@ export default defineConfig({
     outDir: "dist",
     sourcemap: true,
     clean: true,
-    format: ["esm"], // Ensure you're targeting CommonJS
-    platform: "node",
-    target: "node18",
+    format: ["esm", "iife"], // Ensure you're targeting CommonJS
+    platform: "browser",
+    target: "es2020",
     bundle: true,
-    splitting: true,  // Add this for better code splitting
+    splitting: false,  // Add this for better code splitting
     dts: true,       // Generate declaration files
     external: [
         "dotenv", // Externalize dotenv to prevent bundling
@@ -22,5 +22,8 @@ export default defineConfig({
     define: {
         "process.env.USE_OPENAI_EMBEDDING": "true",
         "process.env.USE_OLLAMA_EMBEDDING": "false",
+    },
+    esbuildOptions(options) {
+        options.globalName = "@ineedtendies/elizaos-core";
     },
 });

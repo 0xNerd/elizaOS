@@ -19,4 +19,8 @@ export default defineConfig({
         "https",
         // Add other modules you want to externalize
     ],
+    define: {
+        "process.env.USE_OPENAI_EMBEDDING": "true",
+        "process.env.USE_OLLAMA_EMBEDDING": "false",
+    },
 });

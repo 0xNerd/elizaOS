@@ -720,6 +720,7 @@ export type Character = {
     settings?: {
         secrets?: { [key: string]: string };
         intiface?: boolean;
+        useOpenAI?: boolean;
         imageSettings?: {
             steps?: number;
             width?: number;

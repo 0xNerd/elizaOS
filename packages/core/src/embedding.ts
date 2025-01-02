@@ -160,7 +160,7 @@ export function getEmbeddingZeroVector(): number[] {
 export async function embed(runtime: IAgentRuntime, input: string) {
     elizaLogger.debug("Embedding request:", {
         modelProvider: runtime.character.modelProvider,
-        useOpenAI: process.env.USE_OPENAI_EMBEDDING,
+        useOpenAI: runtime.character.settings.useOpenAI,
         input: input?.slice(0, 50) + "...",
         inputType: typeof input,
         inputLength: input?.length,
